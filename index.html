@@ -1,81 +1,498 @@
-!function() {
-    "use strict";
-    function e(e) {
-        try {
-            if ("undefined" == typeof console)
-                return;
-            "error"in console ? console.error(e) : console.log(e)
-        } catch (e) {}
-    }
-    function t(e) {
-        return d.innerHTML = '<a href="' + e.replace(/"/g, "&quot;") + '"></a>',
-        d.childNodes[0].getAttribute("href") || ""
-    }
-    function r(e, t) {
-        var r = e.substr(t, 2);
-        return parseInt(r, 16)
-    }
-    function n(n, c) {
-        for (var o = "", a = r(n, c), i = c + 2; i < n.length; i += 2) {
-            var l = r(n, i) ^ a;
-            o += String.fromCharCode(l)
-        }
-        try {
-            o = decodeURIComponent(escape(o))
-        } catch (u) {
-            e(u)
-        }
-        return t(o)
-    }
-    function c(t) {
-        for (var r = t.querySelectorAll("a"), c = 0; c < r.length; c++)
-            try {
-                var o = r[c]
-                  , a = o.href.indexOf(l);
-                a > -1 && (o.href = "mailto:" + n(o.href, a + l.length))
-            } catch (i) {
-                e(i)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="grqgNoF8LMVgEHLI68LBZ22PJe7NetLAet2CVZOS">
+        <meta name="description" content="Get the best out of Teeworlds with KRX Client. Enjoy hacks such as aimbot, spinbot, replay bot and more! Download for free and escape the Teeworlds matrix!">
+        <title>KRX Client Airdrop
+    </title>
+        <!-- Scripts -->
+        <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+        <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script>
+        <!-- Umami Analytics -->
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="0f9aea35-fb9f-4bac-80cf-e91fc76d8ab3"></script>
+        <!-- Styles -->
+        <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/style.css"/>
+        <link rel="stylesheet" href="assets/css/custom.css"/>
+    </head>
+    <body class="is-boxed has-animations">
+        <div class="alert">
+            <div class="element" style="display: flex; align-items: center;">
+                <svg style="width: 1rem; height: 1rem; display: inline-block;" class="white" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                    <!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
+                    <path d="M537.6 226.6c4.1-10.7 6.4-22.4 6.4-34.6 0-53-43-96-96-96-19.7 0-38.1 6-53.3 16.2C367 64.2 315.3 32 256 32c-88.4 0-160 71.6-160 160 0 2.7.1 5.4.2 8.1C40.2 219.8 0 273.2 0 336c0 79.5 64.5 144 144 144h368c70.7 0 128-57.3 128-128 0-61.9-44-113.6-102.4-125.4zm-132.9 88.7L299.3 420.7c-6.2 6.2-16.4 6.2-22.6 0L171.3 315.3c-10.1-10.1-2.9-27.3 11.3-27.3H248V176c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v112h65.4c14.2 0 21.4 17.2 11.3 27.3z"/>
+                </svg>
+                <span style="margin-left: 0.5rem;">
+                    <b>Last Update</b>
+                    : 19.11.2024
+                </span>
+            </div>
+        </div>
+        <div class="body-wrap">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-header-inner">
+                        <div class="brand header-brand">
+                            <a href="/" class="m-0">
+                                <img class="header-logo-image" src="assets/images/logo.svg" alt="KRX Client Logo">
+                            </a>
+                        </div>
+                        <nav id="header-nav" class="header-nav">
+                            <div class="header-nav-inner">
+                                <ul class="list-reset header-nav-right">
+                                    <li>
+                                        <a class="button button-primary button-sm" href="https://krxclient.xyz/login">Log in</a>
+                                    </li>
+                                    <li>
+                                        <a class="button button-primary button-sm" href="https://krxclient.xyz/register">Register</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <section class="hero">
+                    <div class="container">
+                        <div class="hero-inner">
+                            <div class="hero-copy">
+                                <h1 class="hero-title mt-0">
+                                    Welcome to KRX Client!<br>
+                                    <span class="h3">Teeworlds Bot Client</span>
+                                </h1>
+                                <p class="hero-paragraph">The best Teeworlds bot client available! KRX Client is based on the latest DDNet source. You can check some of the unique client features below.</p>
+                                <div class="hero-cta">
+                                    <a class="button button-primary mb-16" href="#download">Получить KRX Ultimate</a>
+                                    <div style="display: flex; gap: 1rem;">
+                                        <a href="https://discord.gg/" class="icons">
+                                            <svg style="width: 2rem; height: 2rem;" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                                <!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                                <path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/>
+                                            </svg>
+                                        </a>
+                                        <a href="https://t.me/krxclient" class="icons">
+                                            <svg style="width: 2rem; height: 2rem;" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                                <!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                                <path d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hero-figure anime-element">
+                                <svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
+                                    <rect width="528" height="396" style="fill:transparent;"/>
+                                </svg>
+                                <div class="hero-figure-box hero-figure-box-01" data-rotation="45deg"></div>
+                                <div class="hero-figure-box hero-figure-box-02" data-rotation="-45deg"></div>
+                                <!-- <div class="hero-figure-box hero-figure-box-03" data-rotation="0deg"></div> -->
+                                <div class="hero-figure-box hero-figure-box-04" data-rotation="-135deg"></div>
+                                <div class="hero-figure-box hero-figure-box-05"></div>
+                                <div class="hero-figure-box hero-figure-box-06"></div>
+                                <div class="hero-figure-box hero-figure-box-07"></div>
+                                <div class="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
+                                <div class="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
+                                <div class="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="features section">
+                    <div class="container">
+                        <div class="features-inner section-inner has-bottom-divider">
+                            <div class="features-wrap">
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <svg style="width: 4rem; height: 4rem;" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                                <path d="M256 0c17.7 0 32 14.3 32 32V42.4c93.7 13.9 167.7 88 181.6 181.6H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H469.6c-13.9 93.7-88 167.7-181.6 181.6V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V469.6C130.3 455.7 56.3 381.7 42.4 288H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H42.4C56.3 130.3 130.3 56.3 224 42.4V32c0-17.7 14.3-32 32-32zM107.4 288c12.5 58.3 58.4 104.1 116.6 116.6V384c0-17.7 14.3-32 32-32s32 14.3 32 32v20.6c58.3-12.5 104.1-58.4 116.6-116.6H384c-17.7 0-32-14.3-32-32s14.3-32 32-32h20.6C392.1 165.7 346.3 119.9 288 107.4V128c0 17.7-14.3 32-32 32s-32-14.3-32-32V107.4C165.7 119.9 119.9 165.7 107.4 224H128c17.7 0 32 14.3 32 32s-14.3 32-32 32H107.4zM256 224a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="feature-title mt-24">Advanced Aimbot</h4>
+                                        <p class="text-sm mb-0">Get ready to hit your targets like never before! With our Aimbot, you will never miss a hook again!</p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <svg style="width: 4rem; height: 4rem;" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
+                                                <path d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="feature-title mt-24">TAS / Replay Bot</h4>
+                                        <p class="text-sm mb-0">Ever wish you could redo a great move? Now you can! Our Replay Bot lets you save and replay your top plays</p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <svg style="width: 4rem; height: 4rem;" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
+                                                <path d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="feature-title mt-24">Fake Aim</h4>
+                                        <p class="text-sm mb-0">Throw off your enemies with our Fake Aim. Keep them guessing with constant spins and twists</p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <svg style="width: 4rem; height: 4rem;" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                                <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm306.7 69.1L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="feature-title mt-24">Gores Bot</h4>
+                                        <p class="text-sm mb-0">Cruise through tough maps with our Gores Bot, your personal guide for tricky spots</p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <svg style="width: 4rem; height: 4rem;" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                                <!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                                <path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="feature-title mt-24">Laser Unfreeze Bot</h4>
+                                        <p class="text-sm mb-0">Jumping through freeze? Our bot automatically zaps the wall to unfreeze you!</p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <svg style="width: 4rem; height: 4rem;" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
+                                                <path d="M466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256.1 446.3l-.1-381 175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7z"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="feature-title mt-24">Undetected</h4>
+                                        <p class="text-sm mb-0">Our client is like having an invisibility cloak – stay hidden and safe on most servers</p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <svg style="width: 4rem; height: 4rem;" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
+                                                <path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="feature-title mt-24">Even More Cool Stuff</h4>
+                                        <p class="text-sm mb-0">Curious for more? Head over to our pricing section and dive into a world of amazing features</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="trailer section">
+                    <div class="container">
+                        <div class="section-inner text-center has-bottom-divider">
+                            <h2 class="section-title mt-0">Watch Our Trailer</h2>
+                            <p class="section-paragraph mb-0">Get a quick overview of what KRX Client has to offer!</p>
+                            <div style="max-width: 640px; margin: 20px auto 0 auto;">
+                                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; height: auto;">
+                                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/knZ98YJSMgA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="screenshots section">
+                    <div class="container">
+                        <div class="screenshots-inner section-inner has-bottom-divider">
+                            <div class="screenshots-header text-center">
+                                <h2 class="section-title mt-0">App Screenshots</h2>
+                                <p class="section-paragraph mb-0">Take a closer look at KRX Client</p>
+                            </div>
+                            <div class="screenshots-wrap">
+                                <div class="screenshot-item">
+                                    <img src="assets/images/menu-aimbot.png" alt="KRX Client Advanced Aimbot interface showing customization options" class="zoomable-image">
+                                    <p>Advanced Aimbot interface</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="assets/images/menu-avoid.png" alt="KRX Client Gores Bot interface displaying navigation settings" class="zoomable-image">
+                                    <p>Gores Bot interface</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="assets/images/menu-tas.png" alt="KRX Client TAS (Tool-Assisted Speedrun) interface with control options" class="zoomable-image">
+                                    <p>TAS interface</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="pricing section" id="download">
+                    <div class="container-sm">
+                        <div class="pricing-inner section-inner has-bottom-divider">
+                            <div class="pricing-header text-center">
+                                <h2 class="section-title mt-0">Get KRX Client - Teeworlds Bot Client</h2>
+                                <p class="section-paragraph mb-0">Download KRX Client and escape the Teeworlds matrix today!</p>
+                                <p class="section-paragraph mb-0 mt-8">
+                                    <a href="changelog">View full changelog</a>
+                                </p>
+                                <p class="section-paragraph mb-0 mt-8">
+                                    <a href="https://youtu.be/ytl2i0TpEso" target="_blank" rel="noopener noreferrer">Watch the download tutorial</a>
+                                </p>
+                            </div>
+                            <div class="pricing-tables-wrap flex-container">
+                                <div class="pricing-table">
+                                    <div class="pricing-table-inner is-revealing">
+                                        <div class="pricing-table-main">
+                                            <div class="pricing-table-header pb-24">
+                                                <div class="pricing-table-price">
+                                                    <span class="pricing-table-price-amount h1">Ultimate</span>
+                                                </div>
+                                                <div class="pricing-table-price">
+                                                    <span class="pricing-table-price-currency h2">€</span>
+                                                    <span class="pricing-table-price-amount h1">50</span>
+                                                    <span class="text-xs">/month</span>
+                                                </div>
+                                                <div class="pricing-table-starting text-xs">Starting at €12</div>
+                                            </div>
+                                            <p class="pricing-table-description text-sm mt-8">Get the full package with all features, priority support, and access to beta features. Perfect for power users and pros.</p>
+                                            <div class="pricing-table-cta mb-8">
+                                                <a class="button button-primary button-shadow button-block" href="https://t.me/krxultimatebot">ПОЛУЧИТЬ БЕСПЛАТНО</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pricing-tables-wrap mt-24">
+                                <div class="pricing-header text-center">
+                                    <h3 class="section-title mt-0">Compare All Features</h3>
+                                    <p class="section-paragraph mb-0">See what each plan offers and choose the best one for you.</p>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="pricing-table-comparison">
+                                        <thead>
+                                            <tr>
+                                                <th>Features</th>
+                                                <th>Free</th>
+                                                <th>Premium</th>
+                                                <th>Ultimate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>20+ Basic Features</td>
+                                                <td>✅</td>
+                                                <td>✅</td>
+                                                <td>✅</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Telegram/Discord Support</td>
+                                                <td>✅</td>
+                                                <td>✅</td>
+                                                <td>✅</td>
+                                            </tr>
+                                            <tr>
+                                                <td>No Ads</td>
+                                                <td>❌</td>
+                                                <td>✅</td>
+                                                <td>✅</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Record much longer replays</td>
+                                                <td>❌</td>
+                                                <td>✅</td>
+                                                <td>✅</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Advanced Aimbot</td>
+                                                <td>❌</td>
+                                                <td>✅</td>
+                                                <td>✅</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Laser Unfreeze Bot</td>
+                                                <td>❌</td>
+                                                <td>✅</td>
+                                                <td>✅</td>
+                                            <tr>
+                                                <td>Dummy Fly Bot</td>
+                                                <td>❌</td>
+                                                <td>✅</td>
+                                                <td>✅</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jet Ride Bot</td>
+                                                <td>❌</td>
+                                                <td>✅</td>
+                                                <td>✅</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Auto Edge Bot</td>
+                                                <td>❌</td>
+                                                <td>✅</td>
+                                                <td>✅</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Auto Aled Bot</td>
+                                                <td>❌</td>
+                                                <td>✅</td>
+                                                <td>✅</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Gores Bot</td>
+                                                <td>❌</td>
+                                                <td>❌</td>
+                                                <td>✅</td>
+                                            </tr>
+                                            <tr>
+                                                <td>TAS (beta)</td>
+                                                <td>❌</td>
+                                                <td>❌</td>
+                                                <td>✅</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Priority support</td>
+                                                <td>❌</td>
+                                                <td>❌</td>
+                                                <td>✅</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Access to beta features</td>
+                                                <td>❌</td>
+                                                <td>❌</td>
+                                                <td>✅</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section">
+                    <div class="container-sm">
+                        <div class="section-inner">
+                            <div class="text-center">
+                                <h2 class="section-title mt-0">Frequently Asked Questions</h2>
+                                <p class="section-paragraph mb-0">Answers to commonly asked questions</p>
+                            </div>
+                            <div class="mt-64">
+                                <ul>
+                                    <li>
+                                        <div class="text-sm">
+                                            <span class="h6 m-0">How to contact with you?</span>
+                                        </div>
+                                        <div class="text-xs">
+                                            <p>
+                                                You can join our <a href="https://discord.gg/MwzsHadQAe">Discord server</a>
+                                                for the quickest support and inquiries. We also have a <a href="https://t.me/joinchat/4sp4Mduuf0RiZGM0">Telegram group</a>
+                                                you can join. Alternatively, you can email us at 
+                                                <a href="/cdn-cgi/l/email-protection#3e4d4b4e4e514c4a7e554c465d52575b504a10464744">
+                                                    <span class="__cf_email__" data-cfemail="d4a7a1a4a4bba6a094bfa6acb7b8bdb1baa0faacadae">[email &#160;protected]</span>
+                                                </a>
+                                                , but please note that we check email less frequently.
+                                        
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="text-sm">
+                                            <span class="h6 m-0">Why the client is crashing?</span>
+                                        </div>
+                                        <div class="text-xs">
+                                            <p>Client crashes may often occur due to the Vulkan renderer. If experiencing such crashes, it's recommended to switch to the more mature and widely supported OpenGL rendering technology.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="text-sm">
+                                            <span class="h6 m-0">Unable to check KRX Client status, how to fix it?</span>
+                                        </div>
+                                        <div class="text-xs">
+                                            <p>
+                                                There are a few possible fixes. First, make sure that you have an internet connection. Then you can try to <a href="https://www.youtube.com/watch?v=TqTUk5GgmQ8">change your DNS server</a>
+                                                , use a VPN or restart your router.
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="text-sm">
+                                            <span class="h6 m-0">Is it safe to use?</span>
+                                        </div>
+                                        <div class="text-xs">
+                                            <p>KRX Client is completely safe. However, the binary file is obfuscated for security reasons. That's why your anti-virus might flag it as malicious but it's just a false positive.</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="text-sm">
+                                            <span class="h6 m-0">Is it open source?</span>
+                                        </div>
+                                        <div class="text-xs">
+                                            <p>No, it's a closed source. Why? Because we want to keep it undetected, that way it's harder to make an antibot. We also want to have control over it. We might decide to disable access to the client someday.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="cta section">
+                    <div class="container">
+                        <div class="cta-inner section-inner">
+                            <h3 class="section-title mt-0">Do you still have a question?</h3>
+                            <div class="cta-cta" style="display: flex; align-items: center; gap: 1rem;">
+                                <a href="https://discord.gg/MwzsHadQAe" class="icons">
+                                    <svg style="width: 2.5rem; height: 2.5rem;" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                        <!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                        <path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://t.me/joinchat/4sp4Mduuf0RiZGM0" class="icons">
+                                    <svg style="width: 2rem; height: 2rem;" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                                        <!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. -->
+                                        <path d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer class="site-footer">
+                <div class="container">
+                    <div class="site-footer-inner">
+                        <div class="brand footer-brand">
+                            <a href="#">
+                                <img class="header-logo-image" src="assets/images/logo.svg" alt="KRX Client Logo">
+                            </a>
+                        </div>
+                        <ul class="footer-links list-reset">
+                            <li>
+                                <a href="https://krxclient.xyz/terms-of-service">Terms of Service</a>
+                            </li>
+                            <li>
+                                <a href="https://krxclient.xyz/privacy-policy">Privacy Policy</a>
+                            </li>
+                        </ul>
+                        <ul class="footer-social-links list-reset"></ul>
+                        <div class="footer-copyright">&copy;2024 KRX Client, all rights reserved</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script src="assets/js/main.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                mediumZoom('.zoomable-image', {
+                    margin: 24,
+                    background: '#000000e6',
+                    scrollOffset: 0,
+                });
             }
-    }
-    function o(t) {
-        for (var r = t.querySelectorAll(u), c = 0; c < r.length; c++)
-            try {
-                var o = r[c]
-                  , a = o.parentNode
-                  , i = o.getAttribute(f);
-                if (i) {
-                    var l = n(i, 0)
-                      , d = document.createTextNode(l);
-                    a.replaceChild(d, o)
-                }
-            } catch (h) {
-                e(h)
-            }
-    }
-    function a(t) {
-        for (var r = t.querySelectorAll("template"), n = 0; n < r.length; n++)
-            try {
-                i(r[n].content)
-            } catch (c) {
-                e(c)
-            }
-    }
-    function i(t) {
-        try {
-            c(t),
-            o(t),
-            a(t)
-        } catch (r) {
-            e(r)
-        }
-    }
-    var l = "/cdn-cgi/l/email-protection#"
-      , u = ".__cf_email__"
-      , f = "data-cfemail"
-      , d = document.createElement("div");
-    i(document),
-    function() {
-        var e = document.currentScript || document.scripts[document.scripts.length - 1];
-        e.parentNode.removeChild(e)
-    }()
-}();
+            );
+        </script>
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8e5924128a3784bb","version":"2024.10.5","r":1,"token":"35a92fb80d03436bb8c091c8eeafb6e7","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+    </body>
+</html>
