@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Completion</title>
+    <style>
+        @font-face {
+            font-family: 'Myriad';
+            src: url('myriad.ttf') format('truetype');
+        }
+        body {
+            background-color: #1A1A1A; /* Dark gray background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height for mobile */
+        }
+        .container {
+            width: 90%; /* Responsive width */
+            max-width: 400px; /* Max width for larger screens */
+            background-color: #2A2A2A; /* Slightly lighter gray for the container */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            font-family: 'Myriad', Arial, sans-serif; /* Use the custom font */
+            color: #FFFFFF; /* White text color for better contrast */
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #444444; /* Darker border for better visibility */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .checkmark {
+            font-size: 24px;
+            color: #4CAF50; /* Green color for check mark */
+            margin-right: 10px;
+        }
+        .completed {
+            font-size: 20px;
+            color: #FFFFFF; /* White text for completed */
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Clear the current content of the body
+        document.body.innerHTML = '';
+
+        // Create a container div
+        const container = document.createElement('div');
+        container.className = 'container';
+
+        // Create a header div
+        const header = document.createElement('div');
+        header.className = 'header';
+
+        // Create checkmark div
+        const checkmark = document.createElement('div');
+        checkmark.className = 'checkmark';
+        checkmark.textContent = '✔️'; // Check mark
+
+        // Create completed div
+        const completed = document.createElement('div');
+        completed.className = 'completed';
+        completed.textContent = 'Авторизация прошла успешно!'; // Completed text without ##
+
+        // Append checkmark and completed to header
+        header.appendChild(checkmark);
+        header.appendChild(completed);
+
+        // Append header to container
+        container.appendChild(header);
+
+        // Create additional content
+        const content = document.createElement('div');
+        content.innerHTML = '<p>Вы получите доступ к боту через несколько минут.</p>'; // Additional content
+
+        // Append content to container
+        container.appendChild(content);
+
+        // Append container to body
+        document.body.appendChild(container);
+    </script>
+</body>
+</html>
