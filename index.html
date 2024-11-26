@@ -5,60 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>traphouse[dot]cfd</title>
     <style>
-        @font-face {
-            font-family: 'MountainsofChristmas';
-            src: url("MountainsofChristmas-Regular.ttf") format('truetype');
-        }
-        body {
-            margin: 0; 
-            font-family: 'MountainsofChristmas', sans-serif; 
-            background: #b9b9ff url('index.png') center; 
-            position: relative; 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #b9b9ff; 
             color: #4b0082; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
-            text-align: center;
+            position: relative; 
+            overflow: hidden; 
         }
-        #bio {
+        #bio { 
             background: rgba(255, 255, 255, 0.9); 
-            border-radius: 15px; 
+            border-radius: 10px; 
             padding: 20px; 
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
         }
-        h1 {
-            font-size: 48px; 
-            color: #cdd6f4; 
-            text-shadow: 0 0 8px #b9b9ff, 0 0 16px #585b70; 
-            padding: 10px; 
-            background: rgba(49, 50, 68, 0.8); 
-            border-radius: 12px; 
-            margin-bottom: 1em;
-        }
-        .button {
+        h1 { font-size: 24px; margin-bottom: 10px; }
+        p { font-size: 16px; margin: 5px 0; }
+        .button { 
             background: #4b0082; 
             color: white; 
             border: none; 
             border-radius: 5px; 
-            padding: 10px 20px; 
+            padding: 10px 15px; 
             cursor: pointer; 
-            transition: background 0.3s;
+            transition: background 0.3s; 
         }
         .button:hover { background: #6a0dad; }
+        canvas { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            pointer-events: none; 
+        }
     </style>
 </head>
 <body>
     <div id="bio">
         <h1>wassup homie</h1>
         <p>ma name is lil da bob</p>
-        <p>love to shmouk da za from nicky</p>
-        <p>ma niggаz can kill ya</p>
         <p>ma dizcord : bvbzx</p>
         <button class="button" id="asd">telegram</button>
     </div>
+    <canvas id="snowCanvas"></canvas>
     <script>
-        new Audio('Friday (Strip Club).mp3').play();
+        const canvas = document.getElementById('snowCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let snowflakes = Array.from({ length: 100 }, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 4 + 1
+        }));
+
+        function updateSnowflakes() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            snowflakes.forEach(snowflake => {
+                ctx.beginPath();
+                ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, Math.PI * 2);
+                ctx.fill();
+                snowflake.y += snowflake.radius * 0.5;
+                if (snowflake.y > canvas.height) snowflake.y = 0;
+            });
+            requestAnimationFrame(updateSnowflakes);
+        }
+
+        updateSnowflakes();
         document.getElementById('asd').onclick = () => window.location.href = 'https://traphouse.cfd/tg';
     </script>
 </body>
