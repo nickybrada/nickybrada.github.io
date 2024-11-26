@@ -1,10 +1,67 @@
-<title>traphouse.cfd</title>
-  <style>
-    body {
-      padding: 100;
-      background-color: black;
-    }
-  </style>
-<center>
-<video width="55%" src="https://traphouse.cfd/video.mp4" controls></video>
-</center>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>traphouse[dot]cfd</title>
+</head>
+<body>
+    <div id="bio" class="bio">
+        <h1>wassup homie</h1>
+        <p>ma name is lil da bob</p>
+        <p>love to shmouk da za from nicky</p>
+        <p>ma niggаz can kill ya</p>
+        <p>ma dizcord : bvbzx</p>
+        <button id="asd">telegram</button>
+    </div>
+
+    <script>
+        document.body.style.fontFamily = 'Arial, sans-serif';
+        document.body.style.backgroundColor = '#f0e5ff';
+        document.body.style.color = '#4b0082';
+        document.body.style.margin = '0';
+        document.body.style.padding = '20px';
+        document.body.style.textAlign = 'center';
+
+        const bio = document.getElementById('bio');
+        bio.style.backgroundColor = '#ffffff';
+        bio.style.borderRadius = '15px';
+        bio.style.padding = '20px';
+        bio.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+        bio.style.display = 'inline-block';
+        bio.style.maxWidth = '600px';
+
+        const h1 = bio.querySelector('h1');
+        h1.style.fontSize = '3em';
+        h1.style.marginBottom = '0.5em';
+
+        const pElements = bio.querySelectorAll('p');
+        pElements.forEach(p => {
+            p.style.fontSize = '1.2em';
+            p.style.margin = '0.5em 0';
+        });
+
+        const button = document.getElementById('asd');
+        button.style.backgroundColor = '#4b0082';
+        button.style.color = 'white';
+        button.style.border = 'none';
+        button.style.borderRadius = '5px';
+        button.style.padding = '10px 20px';
+        button.style.cursor = 'pointer';
+        button.style.fontSize = '1em';
+        button.style.transition = 'background-color 0.3s';
+
+        button.onmouseover = function() {
+            button.style.backgroundColor = '#6a0dad';
+        };
+
+        button.onmouseout = function() {
+            button.style.backgroundColor = '#4b0082';
+        };
+
+        button.onclick = function() {
+            window.location.href = 'https://traphouse.cfd/tg';
+        };
+    </script>
+</body>
+</html>
