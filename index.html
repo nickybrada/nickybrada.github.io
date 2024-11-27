@@ -5,16 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>traphouse[dot]cfd</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #b9b9ff; color: #4b0082; display: flex; justify-content: center; align-items: center; min-height: 100vh; position: relative; overflow: hidden; }
-        #bio { background: rgba(255, 255, 255, 0.9); border-radius: 10px; padding: 20px; text-align: center; position: relative; z-index: 1; transition: transform 0.1s; }
-        canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        @font-face {
+            font-family: 'Mountains of Christmas';
+            src: url('MountainsofChristmas-Regular.ttf') format('truetype');
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Mountains of Christmas', Arial, sans-serif; 
+            background: #1a1a1a; 
+            color: #e0e0e0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        #bio { 
+            background: rgba(30, 30, 30, 0.9); 
+            border-radius: 15px; 
+            padding: 30px; 
+            text-align: center; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
+            position: relative; 
+            z-index: 1; 
+            transition: transform 0.1s, background 0.3s; 
+        }
+        h1 { font-size: 28px; margin-bottom: 10px; }
+        p { font-size: 18px; margin: 5px 0; }
+        .button { 
+            background: #4b0082; 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            padding: 12px 20px; 
+            cursor: pointer; 
+            transition: background 0.3s, transform 0.2s; 
+        }
+        .button:hover { background: #6a0dad; transform: scale(1.05); }
+        canvas { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            pointer-events: none; 
+            z-index: 0; 
+        }
     </style>
 </head>
 <body>
     <div id="bio">
         <h1>wassup homie</h1>
         <p>ma name is lil da bob</p>
-        <button id="asd">telegram</button>
+        <button class="button" id="asd">telegram</button>
     </div>
     <canvas id="snowCanvas"></canvas>
     <script>
@@ -22,15 +67,40 @@
         audio.play();
         const canvas = document.getElementById('snowCanvas');
         const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth; 
+        canvas.height = window.innerHeight;
         let snowflakes = Array.from({ length: 100 }, () => ({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, radius: Math.random() * 4 + 1 }));
+        
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const analyser = audioContext.createAnalyser(); const source = audioContext.createMediaElementSource(audio);
-        source.connect(analyser); analyser.connect(audioContext.destination); analyser.fftSize = 256;
+        const analyser = audioContext.createAnalyser(); 
+        const source = audioContext.createMediaElementSource(audio);
+        source.connect(analyser); 
+        analyser.connect(audioContext.destination); 
+        analyser.fftSize = 256;
         const dataArray = new Uint8Array(analyser.frequencyBinCount);
-        function updateSnowflakes() { ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.fillStyle = 'rgba(255, 255, 255, 0.8)'; snowflakes.forEach(s => { ctx.beginPath(); ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2); ctx.fill(); s.y += s.radius * 0.5; if (s.y > canvas.height) s.y = 0; }); requestAnimationFrame(updateSnowflakes); }
-        function shakeBio() { analyser.getByteFrequencyData(dataArray); const average = dataArray.reduce((a, b) => a + b) / dataArray.length; document.getElementById('bio').style.transform = `translate(${(Math.random() - 0.5) * average / 10}px, ${(Math.random() - 0.5) * average / 10}px)`; }
-        setInterval(shakeBio, 100); updateSnowflakes();
+
+        function updateSnowflakes() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            snowflakes.forEach(s => {
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+                ctx.fill();
+                s.y += s.radius * 0.5;
+                if (s.y > canvas.height) s.y = 0;
+            });
+            requestAnimationFrame(updateSnowflakes);
+        }
+
+        function resizeBio() {
+            analyser.getByteFrequencyData(dataArray);
+            const average = dataArray.reduce((a, b) => a + b) / dataArray.length;
+            const scale = 1 + average / 200; // Adjust the divisor for sensitivity
+            document.getElementById('bio').style.transform = `scale(${scale})`;
+        }
+
+        setInterval(resizeBio, 100); 
+        updateSnowflakes();
         document.getElementById('asd').onclick = () => window.location.href = 'https://traphouse.cfd/tg';
     </script>
 </body>
