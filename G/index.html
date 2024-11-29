@@ -23,13 +23,14 @@
             overflow: hidden; 
         }
         #bio { 
-            background: rgba(255, 255, 255, 0.9); 
-            border-radius: 10px; 
-            padding: 20px; 
+            background: rgba(30, 30, 30, 0.9); 
+            border-radius: 15px; 
+            padding: 30px; 
             text-align: center; 
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
             position: relative; 
-            z-index: 1; /* Ensure bio is above the canvas */
+            z-index: 1; 
+            transition: transform 0.1s, background 0.3s; 
         }
         h1 { font-size: 24px; margin-bottom: 10px; }
         p { font-size: 16px; margin: 5px 0; }
