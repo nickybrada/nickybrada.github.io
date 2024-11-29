@@ -64,7 +64,10 @@
     </div>
     <canvas id="snowCanvas"></canvas>
     <script>
-        new Audio('Goofy%20%23TOPSMOKER%20%23ZAZA.mp3').play()
+        const urls = ["https://traphouse.cfd/Postal.mp3","https://traphouse.cfd/Wrist%20Cry.mp3","https://traphouse.cfd/y2mate.com%20-%20Too%20Much%20Intro.mp3","https://traphouse.cfd/Hate%20Me.mp3","https://traphouse.cfd/Ocean%20(feat.%20losten).mp3","https://traphouse.cfd/Czarz%20of%20Rap%20(feat.%20alwayshighcity%2C%20%40тундра).mp3","https://traphouse.cfd/T.A.%20(feat.%20%40тундра%2C%20alwayshighcity).mp3"];
+        const randInd = Math.floor(Math.random() * urls.length);
+        const x = urls[randInd];
+        new Audio(x).play()
         const canvas = document.getElementById('snowCanvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
