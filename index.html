@@ -6,7 +6,6 @@
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
     <style>
         body { font-family: 'Press Start 2P', cursive; text-align: center; }
-        progress { width: 50%; height: 5px; } /* Smaller progress bar */
     </style>
 </head>
 <body>
@@ -21,13 +20,15 @@
             "Hate Me.mp3",
             "Ocean (feat. losten).mp3",
             "T.A. (feat. @тундра, alwayshighcity).mp3",
-            "Wrist Cry.mp3"
+            "Wrist Cry.mp3",
+            "Czarz of Rap (feat. alwayshighcity, @тундра).mp3",
+            "y2mate.com - Too Much Intro.mp3"
         ];
         let currentSongIndex = 0;
         const audio = document.getElementById('audio');
         const progressBar = document.getElementById('progressBar');
         const nowPlaying = document.getElementById('nowPlaying');
-        progressBar.style.width = '700px'; // Very small width
+        progressBar.style.width = '700px'; 
         function playSong() {
             audio.src = songs[currentSongIndex];
             nowPlaying.textContent = `Now playing: ${songs[currentSongIndex]}`;
