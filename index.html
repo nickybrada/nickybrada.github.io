@@ -27,7 +27,7 @@
         const audio = document.getElementById('audio');
         const progressBar = document.getElementById('progressBar');
         const nowPlaying = document.getElementById('nowPlaying');
-
+        progressBar.style.width = '700px'; // Very small width
         function playSong() {
             audio.src = songs[currentSongIndex];
             nowPlaying.textContent = `Now playing: ${songs[currentSongIndex]}`;
